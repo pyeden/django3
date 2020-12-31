@@ -1,0 +1,9 @@
+li a {
+    color: red;
+}
+
+
+body {
+    background: white url("images/2.gif") no-repeat;
+    background-size: 1920px 1080px;
+}
