@@ -67,3 +67,27 @@ class DetailView(generic.DetailView):
 class ResultsView(generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
+
+
+def faker_data(request, model_str):
+    from faker import Faker
+    from django.utils.timezone import make_aware
+    fake = Faker(locale='zh_CN')
+    for i in range(1000):
+        if model_str == 'faker':
+            q_data = {
+                'question_text': fake.text(),
+                'pub_date': make_aware(fake.date_time())
+            }
+            q = Question.objects.create(**q_data)
+            data = {
+                'question': q,
+                'choice_text': fake.text(),
+                'votes': fake.random_int()
+            }
+            c = Choice.objects.create(**data)
+            c.save()
+            q.save()
+        else:
+            return HttpResponse("url 错误")
+    return HttpResponse("Question模型创建1000条数据成功")

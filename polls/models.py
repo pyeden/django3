@@ -29,3 +29,7 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
+
+if __name__ == "main":
+    pass
