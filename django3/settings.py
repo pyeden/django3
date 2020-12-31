@@ -112,6 +112,7 @@ USE_I18N = True
 
 USE_L10N = True
 
+# 使用utc时区支持
 USE_TZ = True
 
 
