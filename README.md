@@ -1,0 +1,1 @@
+# study django3.1
